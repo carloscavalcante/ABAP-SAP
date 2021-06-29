@@ -1,0 +1,34 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0010
+*&---------------------------------------------------------------------*
+*&4) CUSTO VIAGEM
+*Criar um programa do tipo report que faça o cálculo de quantos litros de combustível
+*serão gastos em uma viagem e qual será o valor gasto com combustível. Abaixo segue o
+*layout da tela de entrada de informações:
+*Observação: Os parâmetros acima devem ser do tipo “P” (ponto flutuante) e suportar 2
+*casas decimais.
+*Abaixo seguem as fórmulas que deverão ser utilizadas:
+*LITROS = distância / KM p/ LT.
+*VALOR = LITROS * valor LT comb.
+*Após executar os cálculos imprimir o resulta conforme abaixo:
+*Quantidade combustível gasto: XXX,XX
+*Valor total gasto: XXX,XX
+*&---------------------------------------------------------------------*
+REPORT ZR0010.
+
+* Declarando os Parameters
+PARAMETERS: P_DISTAN TYPE P,
+            VLR_COMB TYPE P,
+            P_KM_L TYPE P.
+
+* Declarando as variáveis
+DATA: V_LITROS TYPE P,
+      V_VALOR TYPE P.
+
+* Realizando os cálculos
+V_LITROS = P_DISTAN / P_KM_L.
+V_VALOR = V_LITROS * VLR_COMB.
+
+* Mostrando resultado
+WRITE:/ 'Quantidade combustível gasto: ',V_LITROS,
+      / 'Valor total gasto: ',V_VALOR.
