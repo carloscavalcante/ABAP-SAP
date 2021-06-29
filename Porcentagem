@@ -1,0 +1,26 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0009
+*&---------------------------------------------------------------------*
+*&Criar um programa do tipo report que faça o cálculo da percentagem de um determinado
+*valor. Abaixo segue o layout da tela de entrada de informações:
+*Observação: Os parâmetros acima devem ser do tipo “P” (ponto flutuante) e suportar 2
+*casas decimais.
+*Abaixo segue a fórmula que deverá ser utilizada:
+*PERCENTAGEM = ( VALOR / 100 ) * percentual.
+*Após executar o cálculo imprimir o resulta conforme abaixo:
+*O valor percentual é: XX,XX
+*&---------------------------------------------------------------------*
+REPORT ZR0009.
+
+* Declarando os Parameters
+PARAMETERS: P_VALOR TYPE P,
+            P_PERC TYPE P.
+
+* Declarando as Variáveis
+DATA: V_PERCENTUAL TYPE P.
+
+* Realizando o cálculo
+V_PERCENTUAL = ( P_VALOR / 100 ) * P_PERC.
+
+* Imprimindo o resultado
+WRITE:/ 'O valor percentual é: ',V_PERCENTUAL.
