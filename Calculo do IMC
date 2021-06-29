@@ -24,7 +24,7 @@ PARAMETERS: P_PESO TYPE P decimals 2,
             P_ALTURA TYPE P decimals 2.
 
 * Declarando as Variáveis
-DATA: V_IMC TYPE P,
+DATA: V_IMC TYPE P decimal 2,
       V_SIT TYPE STRING.
 
 * REALIZANDO O CÁLCULO
