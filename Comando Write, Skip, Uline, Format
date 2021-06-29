@@ -1,0 +1,18 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0003
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZR0003 NO STANDARD PAGE HEADING.
+
+WRITE: 'Primeira linha'.
+SKIP 1.
+WRITE: / 'Terceira linha'.
+WRITE: / 'Fundo vermelho' COLOR 6.
+WRITE: / 'Letra vermelha' COLOR 6 INVERSE.
+ULINE.
+FORMAT COLOR 1.
+WRITE: / 'Todo esse texto'.
+WRITE: ' será impresso em '.
+WRITE: 'AZUL'.
+FORMAT RESET.
