@@ -1,0 +1,29 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0007
+*&---------------------------------------------------------------------*
+*& Criar um programa do tipo report que imprima o nome e calcule a idade com base no ano
+*& de nascimento. Abaixo segue o layout da tela de entrada de informações:
+*Observação: O campo “Nome da pessoa” deve ser do tamanho de 40 caracteres e o
+*parâmetro “Ano de nasc.” deve ser do tipo numérico tamanho de 4.
+*Abaixo segue a fórmula que deverá ser utilizada:
+*IDADE_ATUAL = SY-DATUM(4) – ANO_NASC.
+*Após executar o cálculo imprimir o resulta conforme abaixo:
+*O Sr.(a): FULANO DA SILVA
+*Tem XX anos
+*Exercício
+*&---------------------------------------------------------------------*
+REPORT ZR0007.
+
+* DECLARAÇÃO DE PARAMETRERS
+PARAMETERS: P_NOME(40) TYPE C,
+            ANO_NASC TYPE I.
+
+* DECLARAÇÃO DAS VARIAVEIS
+DATA: V_IDADE_ATUAL TYPE I.
+
+* FAZENDO O CÁLCULO
+V_IDADE_ATUAL = SY-DATUM(4) - ANO_NASC.
+
+* IMPRESSÃO DO RESULTADO
+WRITE:/ 'O Sr.(a): ',P_NOME,
+      / 'Tem ',V_IDADE_ATUAL,' ANOS'.
