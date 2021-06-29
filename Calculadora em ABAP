@@ -1,0 +1,36 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0006
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZR0006 MESSAGE-ID ZC0001.
+
+* Declaração de Variáveis
+DATA: V_RESUL TYPE I.
+
+* Declaração de Parameter
+PARAMETERS: P_NUM1 TYPE I,
+            P_NUM2 TYPE I,
+            P_SOMA RADIOBUTTON GROUP GP1,
+            P_DIV RADIOBUTTON GROUP GP1,
+            P_MULT RADIOBUTTON GROUP GP1,
+            P_SUBTRA RADIOBUTTON GROUP GP1.
+
+* Calculo
+IF P_SOMA = 'X'.
+  V_RESUL = P_NUM1 + P_NUM2.
+ELSEIF P_DIV = 'X'.
+  TRY.
+  V_RESUL = P_NUM1 / P_NUM2.
+  CATCH CX_SY_ZERODIVIDE.
+    MESSAGE I000. "DIVISÃO POR ZERO NÃO PERMITIDA
+    STOP.
+  ENDTRY.
+ELSEIF P_MULT = 'X'.
+  V_RESUL = P_NUM1 * P_NUM2.
+ELSEIF P_SUBTRA = 'X'.
+  V_RESUL = P_NUM1 - P_NUM2.
+ENDIF.
+
+* Informando o resultado
+WRITE:/ 'O resultado do cálculo é:',V_RESUL.
