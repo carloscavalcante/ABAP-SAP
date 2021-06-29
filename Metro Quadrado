@@ -13,11 +13,11 @@
 REPORT ZR0008.
 
 * Declaração dos Parametros
-PARAMETERS: P_MED_1 TYPE P,
-            P_MED_2 TYPE P.
+PARAMETERS: P_MED_1 TYPE P decimal 2,
+            P_MED_2 TYPE P decimal 2.
 
 * Declaração das Variáveis
-DATA: V_METRO_QUAD TYPE P.
+DATA: V_METRO_QUAD TYPE P decimal 2.
 
 * Realizando o cálculo
 V_METRO_QUAD = P_MED_1 * P_MED_2.
