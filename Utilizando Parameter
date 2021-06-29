@@ -1,0 +1,19 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0005
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZR0005.
+
+* Declaração de Parameter
+PARAMETERS: P_HORA TYPE T,
+            P_NOME TYPE STRING,
+            P_DATA TYPE D.
+
+* Impressão dos valores
+WRITE:/ 'Nome:',P_NOME.
+SKIP.
+WRITE:/ 'Data:',P_DATA DD/MM/YYYY.
+ULINE.
+WRITE:/ 'Hora:',P_HORA ENVIRONMENT TIME FORMAT.
+ULINE.
