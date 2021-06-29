@@ -1,0 +1,12 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0002
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZR0002 NO STANDARD PAGE HEADING.
+
+WRITE 'Texto literal sempre de ver digitado em aspas simples'.
+
+WRITE: / 'O comando "/" quebra a impressão para próxima linha',
+
+       /20 'Texto será impresso iniciando na vigésima coluna'.
