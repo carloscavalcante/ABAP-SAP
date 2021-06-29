@@ -17,13 +17,13 @@
 REPORT ZR0010.
 
 * Declarando os Parameters
-PARAMETERS: P_DISTAN TYPE P,
-            VLR_COMB TYPE P,
-            P_KM_L TYPE P.
+PARAMETERS: P_DISTAN TYPE P decimal 2,
+            VLR_COMB TYPE P decimal 2,
+            P_KM_L TYPE P decimal 2.
 
 * Declarando as variáveis
-DATA: V_LITROS TYPE P,
-      V_VALOR TYPE P.
+DATA: V_LITROS TYPE P decimal 2,
+      V_VALOR TYPE P decimal 2.
 
 * Realizando os cálculos
 V_LITROS = P_DISTAN / P_KM_L.
