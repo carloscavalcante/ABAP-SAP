@@ -1,0 +1,23 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0004
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZR0004.
+
+* Declaração de variáveis
+DATA: V_NOME TYPE STRING,
+      V_DATA TYPE D,
+      V_HORA TYPE T.
+
+V_NOME = 'Carlos Cavalcante'.
+V_DATA = '20210628'.
+V_HORA = '120000'.
+* Declaração de constante
+CONSTANTS: C_ANO(4) TYPE C VALUE '2014'.
+SKIP.
+WRITE:/ 'O nome é:',V_NOME,
+      / 'A data é:',V_DATA DD/MM/YYYY,
+      / 'A hora é:',V_HORA ENVIRONMENT TIME FORMAT,
+      / 'O ano é:',C_ANO COLOR 6.
+ULINE.
