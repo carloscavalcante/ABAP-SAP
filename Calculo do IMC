@@ -1,0 +1,51 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0011
+*&---------------------------------------------------------------------*
+*&Criar um programa do tipo report que faça o cálculo do IMC. Abaixo segue o layout da tela
+*de entrada de informações:
+*Observação: Os parâmetros acima devem ser do tipo “P” (ponto flutuante) e suportar 2
+*casas decimais.
+*Abaixo segue a fórmula que deverá ser utilizada:
+*IMC = Peso / Altura².
+*Após encontrar o valor do IMC será necessário fazer uma validação para determinar a
+*situação com base no IMCS. Abaixo segue a lógica que deverá ser utilizada:
+*SE IMC < 17 = Imprimir O IMC é XX,XX e a situação é “muito abaixo do peso”.
+*SE IMC >= 17,0 E < 18,5 = Imprimir O IMC é XX,XX e a situação é “Abaixo peso”
+*SE IMC >= 18,5 E < 25,0 = Imprimir O IMC é XX,XX e a situação é “Peso normal”
+*SE IMC >= 25,0 E < 30,0 = Imprimir O IMC é XX,XX e a situação é “Acima do peso”
+*SE IMC >= 30,0 E < 35,0 = Imprimir O IMC é XX,XX e a situação é “Obesidade I”
+*SE IMC >= 35,0 E < 40,0 = Imprimir O IMC é XX,XX e a situação é “Obesidade II (severa)”
+*SE IMC >= 40,0 = Imprimir O IMC é XX,XX e a situação é “Obesidade III (mórbida)”
+*&---------------------------------------------------------------------*
+REPORT ZR0011.
+
+* Declarando os Parameters
+PARAMETERS: P_PESO TYPE P decimals 2,
+            P_ALTURA TYPE P decimals 2.
+
+* Declarando as Variáveis
+DATA: V_IMC TYPE P,
+      V_SIT TYPE STRING.
+
+* REALIZANDO O CÁLCULO
+V_IMC = P_PESO / ( P_ALTURA ** 2 ).
+
+* REALIZANDO A ANALISE
+IF V_IMC < '17'.
+  V_SIT = 'muito abaixo do peso'.
+ELSEIF V_IMC >= '17' AND V_IMC < '18.5'.
+  V_SIT = 'abaixo do peso'.
+ELSEIF V_IMC >= '18.5' AND V_IMC < '25'.
+  V_SIT = 'peso normal'.
+ELSEIF V_IMC >= '25' AND V_IMC < '30'.
+  V_SIT = 'acima do peso'.
+ELSEIF V_IMC >= '30' AND V_IMC < '35'.
+  V_SIT = 'obesidade I'.
+ELSEIF V_IMC >= '35' AND V_IMC < '40'.
+  V_SIT = 'obesidade II (severa)'.
+ELSEIF V_IMC >= '40'.
+  V_SIT = 'obesidade III (morbida)'.
+ENDIF.
+
+* Impressão do Resultado
+WRITE:/ 'O resultado do IMC é ',V_IMC,' e a situação é ',V_SIT.
