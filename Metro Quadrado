@@ -1,0 +1,26 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0008
+*&---------------------------------------------------------------------*
+*&Criar um programa do tipo report que faça o cálculo do metro quadrado. Abaixo segue o
+*layout da tela de entrada de informações:
+*Observação: Os parâmetros acima devem ser do tipo “P” (ponto flutuante) e suportar 2
+*casas decimais.
+*Abaixo segue a fórmula que deverá ser utilizada:
+*METRO_QUADRADO = 1°medida * 2°medida.
+*Após executar o cálculo imprimir o resulta conforme abaixo:
+*A metragem quadrada é: XX,XX
+*&---------------------------------------------------------------------*
+REPORT ZR0008.
+
+* Declaração dos Parametros
+PARAMETERS: P_MED_1 TYPE P,
+            P_MED_2 TYPE P.
+
+* Declaração das Variáveis
+DATA: V_METRO_QUAD TYPE P.
+
+* Realizando o cálculo
+V_METRO_QUAD = P_MED_1 * P_MED_2.
+
+* Imprimindo o resultado
+WRITE:/ 'A metragem quadrada é: ',V_METRO_QUAD.
