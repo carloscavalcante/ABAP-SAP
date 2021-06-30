@@ -1,0 +1,52 @@
+*&---------------------------------------------------------------------*
+*& Report ZR0012
+*&---------------------------------------------------------------------*
+*&Criar um programa do tipo report que faça o cálculo de desconto ou acréscimo com base
+*no valor da compra. Abaixo segue o layout da tela de entrada de informações:
+*O campo “Valor total” deve ser do tipo “P” com 2 casas decimais e o campo “Qtd.parcelas”
+*deve ser do tipo inteiro.
+*Abaixo segue a fórmula de desconto ou acréscimo
+*SE valor total <= R$ 100,00 e qtd.parcelas igual a 1 = desconto de -15%
+*SE valor total > R$ 100,00 e qtd.parcelas igual a 1 = desconto de -20%
+*SE valor total <= R$ 100,00 e qtd.parcelas <= 3 = desconto de -5%
+*SE valor total > R$ 100,00 e qtd.parcelas <= 3 = desconto de -10%SE qtd.parcelas > 3 = acréscimo de +10%
+*Após executar os cálculos imprimir o resultado conforme abaixo:
+*Valor original = 500,00
+*Qtd.parcela(s) = 1
+*Percentual Desconto/ Acréscimo = 20% -
+*Valor Desconto/ Acréscimo = 100,00 -
+*Valor final = 400,00
+*&---------------------------------------------------------------------*
+REPORT ZR0012.
+
+* Declarando os PAREMETERS
+PARAMETERS: P_VLRTOT TYPE P DECIMALS 2,
+            P_QTDPAR TYPE P DECIMALS 2.
+
+* Declarando as variáveis
+DATA: V_DESCONTO TYPE P DECIMALS 2,
+      V_ACRESCIMO TYPE P DECIMALS 2,
+      V_FINAL TYPE P DECIMALS 2.
+
+* REALIZANDO OS CÁLCULOS
+IF P_VLRTOT <= '100' AND P_QTDPAR = '1'.
+  V_DESCONTO = '-0.15'.
+ELSEIF P_VLRTOT > '100' AND P_QTDPAR = '1'.
+  V_DESCONTO = '-0.20'.
+ELSEIF P_VLRTOT <= '100' AND P_QTDPAR <= '3'.
+  V_DESCONTO = '-0.05'.
+ELSEIF P_VLRTOT > '100' AND P_QTDPAR <= '3'.
+  V_DESCONTO = '-0.10'.
+ELSEIF P_QTDPAR > '3'.
+  V_DESCONTO = '0.10'.
+ENDIF.
+V_ACRESCIMO = P_VLRTOT * V_DESCONTO.
+V_FINAL = V_ACRESCIMO + P_VLRTOT.
+V_DESCONTO = V_DESCONTO * 100.
+
+* ESCREVENDO OS RESULTADOS
+WRITE:/ 'Valor original = ',P_VLRTOT,
+      / 'Qtd.parcela(s) = ',P_QTDPAR,
+      / 'Percentual Desconto/ Acréscimo = ',V_DESCONTO,
+      / 'Valor Desconto/ Acréscimo = ',V_ACRESCIMO,
+      / 'Valor final = ',V_FINAL.
